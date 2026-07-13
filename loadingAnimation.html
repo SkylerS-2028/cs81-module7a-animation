@@ -11,23 +11,24 @@
   <div id="status">Please wait</div>
 
   <script>
+    // Displays the loading animation on the webpage
     function runLoadingAnimation() {
-      const loader = document.getElementById("loader");
-      const status = document.getElementById("status");
+      const loader = document.getElementById("loader"); // Connects the element with the id "loader" from the html file to a variable titled "loader" in JavaScipt
+      const status = document.getElementById("status"); // Connects the element id "status" from the html file to a variable titled "status" in JavaScript
 
-      const frames = ["⏳", "⌛", ".", "..", "..."];
-      let index = 0;
-      let cycleCount = 0;
-      const maxCycles = 10;
+      const frames = ["⏳", "⌛", ".", "..", "..."]; // Frames cycled through in the animation
+      let index = 0; // Index of current frame in the animation
+      let cycleCount = 0; // Amount of times the animation has been fully cycled through
+      const maxCycles = 10; // Amount of cycles that will be completed before the animation ends
 
-      const interval = setInterval(() => {
-        loader.textContent = frames[index % frames.length];
+      const interval = setInterval(() => { // Set interval sets an action to occur after a specific amount of time has passed repeatedly
+        loader.textContent = frames[index % frames.length]; // Updates the loader display text to the current frame of the animation 
         index++;
-        if (index % frames.length === 0) {
+        if (index % frames.length === 0) { // Keeps count of the number of cycles completed
           cycleCount++;
         }
-        if (cycleCount >= maxCycles) {
-          clearInterval(interval);
+        if (cycleCount >= maxCycles) { // If the maximum amount of cycles has been completed the loader element will be changed to a checkmark, and the status element will say "Done!"
+          clearInterval(interval); // Clear interval stops the loop because the maximum amount of cycles has been completed
           loader.textContent = "✅";
           status.textContent = "Done!";
         }
@@ -38,5 +39,6 @@
   </script>
 
 </body>
-</html>
+</html> 
+
   
