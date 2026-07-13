@@ -8,7 +8,7 @@
 <body style="font-family: monospace; text-align: center; padding-top: 100px; background-color: #f4f4f4;">
 
   <div id="loader" style="font-size: 2rem; margin-bottom: 20px;">Loading...</div>
-  <div id="status">Please wait</div>
+  <div id="status" style="color: gray">Please wait</div>
 
   <script>
     // Displays the loading animation on the webpage
@@ -16,7 +16,7 @@
       const loader = document.getElementById("loader"); // Connects the element with the id "loader" from the html file to a variable titled "loader" in JavaScipt
       const status = document.getElementById("status"); // Connects the element id "status" from the html file to a variable titled "status" in JavaScript
 
-      const frames = ["⏳", "⌛", ".", "..", "..."]; // Frames cycled through in the animation
+      const frames = ["⏳", "⌛", ".", "..", "...", "..."]; // Frames cycled through in the animation
       let index = 0; // Index of current frame in the animation
       let cycleCount = 0; // Amount of times the animation has been fully cycled through
       const maxCycles = 10; // Amount of cycles that will be completed before the animation ends
@@ -31,11 +31,18 @@
           clearInterval(interval); // Clear interval stops the loop because the maximum amount of cycles has been completed
           loader.textContent = "✅";
           status.textContent = "Done!";
+          status.style.color = "black";
         }
       }, 500);
     }
 
     runLoadingAnimation();
+
+    /* 
+    My Suggestion: 
+    I would consider adding a small success sound affect once the loading has completed.
+    */
+
   </script>
 
 </body>
